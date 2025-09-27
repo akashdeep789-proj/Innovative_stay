@@ -142,6 +142,10 @@ app.use("/", userRouter);
 app.use("/admin", adminRouter);
 app.use("/", socialRoutes);
 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
